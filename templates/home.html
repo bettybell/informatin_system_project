@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Table of Appeals</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Date Received</th>
+            <th>Date Filed</th>
+            <th>RAB Code</th>
+            <th>RAB Case No.</th>
+            <th>Type Code</th>
+            <th>Type of Case</th>
+            <th>LAC No.</th>
+            <th>Status</th>
+            <th>Complainant</th>
+            <th>Respondent</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- Nested for loop to show all appeals in table -->
+          {% for appeal in appeals %}
+              <tr>
+                {% for data in appeal[1:] %}
+                  <td>{{ data }}</td>
+                {% endfor %}
+                <td><a href="edit_appeal/{{ appeal[0] }}">Update</a></td>
+                <td><a href="delete_appeal/{{ appeal[0] }}">Delete</a></td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

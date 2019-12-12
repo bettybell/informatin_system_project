@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <h1 class="h3 mb-2 text-gray-800"></h1> -->
+<style>
+    .grid-container {
+        display: grid;
+        grid-gap: 10px 10px;
+    }
+
+    .left {
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+
+    .right {
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+</style>
+<div class="row">
+    <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Add Appeal</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <p>{{ message }}</p>
+          <form method="post" class="grid-container">
+              <div class="left">
+                  Date Received: <input type="date" name="date_received">
+              </div>
+              <div class="right">
+                  Date Filed: <input type="date" name="date_filed">
+              </div>
+              <div class="left">
+                  RAB Code: <input type="text" name="rab_code">
+              </div>
+              <div class="right">
+                  RAB Case No.: <input type="text" name="rab_case_no">
+              </div>
+              <div class="left">
+                  Type Code: <input type="text" name="type_code">
+              </div>
+              <div class="right">
+                  Type of Case: <input type="text" name="case_type">
+              </div>
+              <div class="left">
+                  LAC No.: <input type="text" name="lac_no">
+              </div>
+              <div class="right">
+                  Status: <input type="text" name="status">
+              </div>
+              <div class="form-group">
+                  Complainant: <input type="text" name="complainant">
+              </div>
+              <div class="form-group">
+                  Respondent: <input type="text" name="respondent">
+              </div>
+              <input type="submit" class="btn btn-primary btn-user btn-block" value="Add">
+          </form>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}
